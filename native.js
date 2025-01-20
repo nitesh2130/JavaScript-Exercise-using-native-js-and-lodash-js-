@@ -25,17 +25,16 @@ const members = [
 
 
 //3. Get entries where age is between 41-60
-// const ageLimitSave = [];
-// const agelimit = members.map((member) => {
-//   if(member.age>=41 && member.age<60) {
-//     ageLimitSave.push(member);
-//     return member;
-//   }
-// })
-// console.log(agelimit);
-// console.log(ageLimitSave);
-
-//3.2  
+const ageLimitSave = [];
+const agelimit = members.map((member) => {
+  if(member.age>=41 && member.age<60) {
+    ageLimitSave.push(member);
+    return member;
+  }
+})
+console.log(agelimit);
+console.log(ageLimitSave);
+ 
 
 
 
@@ -58,6 +57,8 @@ const members = [
 //   }
 // }
 
+//const max = Math.max(...members.map(member => member.age));
+
 // console.log(max);
 
 
@@ -66,33 +67,31 @@ const members = [
 
 //
 //  6. old, noage, young
-//console.log(members);
-// const noage = members.filter((member) => member.age === undefined);
+const noage = _.filter(members, member => member.age === undefined);
+const young = _.filter(members, member => member.age <35);
+const old = _.filter(members, member => member.age >= 35);
 
-// const old = members.filter((member) => member.age>=35);
-// const young = members.filter((member) => member.age<35);
-// const full = [];
-// full.push("noage",  noage);
-// full.push("young",  young);
-// full.push("old",  old);
-
-// console.log(full)
+const newMembers = {
+  'noage': noage,
+  'young': young,
+  'old': old
+};
 
 
-//add a new member to same members array instance at index 2
+//7. add a new member to same members array instance at index 2
 // const element = {name: "Nitesh Sharma",age: 22};
 // members.splice(2, 0, element);
 // console.log(members);
 
 
-//extract first and second element using destructing
+//8. extract first and second element using destructing
 // const [firstPerson, secondPerson] = members;
 // console.log(firstPerson);
 // console.log(secondPerson);
 
 
 
-//Create a new array instance adding a new member at index 0, and keeping existing afterwards
+// 9. Create a new array instance adding a new member at index 0, and keeping existing afterwards
 // const newMember = members;
 // const oneMember = {name: 'Ram', age: 25}
 // newMember.splice(0, 0, oneMember);
@@ -101,44 +100,23 @@ const members = [
 
 
 
-//  Extract properties of object using destructuring
-// const newObj = {
-//   name: 'Aman Makhija', 
-//   age: 20,
-//   role: "teacher",
-//   email: "aman@gmail.com"
-// }
-
-// const {name, age, role, email } = newObj;
+// 10. Extract properties of object using destructuring
+// const [{name}, {age}] = members;
 // console.log("name  ", name);
 // console.log("age   ", age);
-// console.log("role  ", role);
-// console.log("email ", email);
 
 
 
 
-//Rename extracted property of object while destructing
-// const newObj = {
-//   name: 'Aman Makhija', 
-//   age: 20,
-//   role: "teacher",
-//   email: "aman@gmail.com"
-// }
-
-// const {name: username,
-//   age: userAge,
-//   role: userRole, 
-//   email: userEmail } = newObj;
-// console.log("name  ", username);
-// console.log("age   ", userAge);
-// console.log("role  ", userRole);
-// console.log("email ", userEmail);
+// 11. Rename extracted property of object while destructing
+// const [{name:username}, {age:Age}] =members
+// console.log(username);
+// console.log(Age);
 
 
 
 
-// Destructure any property of an object and use spread operator to get remaining properties in an object
+// 12. Destructure any property of an object and use spread operator to get remaining properties in an object
 // const newObj = {
 //   name: 'Aman Makhija', 
 //   age: 20,
@@ -153,7 +131,7 @@ const members = [
 
 
 
-//  Create a new object by copying using spread operator, override one of the properties to assign a new value in the same step
+// 13. Create a new object by copying using spread operator, override one of the properties to assign a new value in the same step
 // const new2Obj = {...newObj, age:45};
 // console.log(new2Obj);
 
@@ -167,15 +145,14 @@ const members = [
 
 
 
-const newMembers = [
-  {name: 'Aman Makhija', age: 20},
-  {name: 'Suresh Jsharma', age: 40},
-  {name: 'Vijay Sahu', age: 41},
-  {name: 'Rakesh Srivastava', age: 17},
-  {name: 'Swpril Ahuja', age: 45},
-  {name: 'Yogesh Khatri', age: 51}
-];
+// const new2Members = [
+//   {name: 'Aman Makhija', age: 20},
+//   {name: 'Suresh Jsharma', age: 40},
+//   {name: 'Vijay Sahu', age: 41},
+//   {name: 'Rakesh Srivastava', age: 17},
+//   {name: 'Swpril Ahuja', age: 45},
+//   {name: 'Yogesh Khatri', age: 51}
+// ];
 
-const agesum = newMembers.reduce((acc, x) => acc + x.age, 0)
-console.log(agesum);
-//console.log(newObj);
+// const agesum = new2Members.reduce((acc, x) => acc + x.age, 0)
+// console.log(agesum);
